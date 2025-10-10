@@ -1,0 +1,674 @@
+[
+  {
+    "Reg. No.": "B-1",
+    "Name": "Mr. Vijay kumar gupta",
+    "Firm Name": "M/S Garud Enterprises",
+    "Mobile No.": 9415030854
+  },
+  {
+    "Reg. No.": "B-2",
+    "Name": "Mr. Suresh Chandra Agrawal",
+    "Firm Name": "M/S Shanti Padam Emporium",
+    "Mobile No.": 9453134318
+  },
+  {
+    "Reg. No.": "B-3",
+    "Name": "Mr. Purmottham Agrawal",
+    "Firm Name": "M/S P S JEWELLERS",
+    "Mobile No.": 9415031124
+  },
+  {
+    "Reg. No.": "B-4",
+    "Name": "Mr. Anup Agrawal",
+    "Firm Name": "M/S Shri Balaji Paints & Hardware",
+    "Mobile No.": 9415456730
+  },
+  {
+    "Reg. No.": "B-5",
+    "Name": "Mr. Mahendra Deewan",
+    "Firm Name": "M/S Variety Book House",
+    "Mobile No.": 9415073363
+  },
+  {
+    "Reg. No.": "B-6",
+    "Name": "Mr. Ashok Agrawal",
+    "Firm Name": "M/S Agarwal Steel Corporation",
+    "Mobile No.": 9415030320
+  },
+  {
+    "Reg. No.": "B-7",
+    "Name": "Mr. Dwarika Prashad Agrawal",
+    "Firm Name": "M/S Banarasi Das & Company",
+    "Mobile No.": 9415073798
+  },
+  {
+    "Reg. No.": "B-8",
+    "Name": "Mr. Sudheer Arora",
+    "Firm Name": "M/S English Book Depot",
+    "Mobile No.": 9936929191
+  },
+  {
+    "Reg. No.": "B-9",
+    "Name": "Mr. Sunil Kumar Agrawal",
+    "Firm Name": "M/S Jassu Ram Behari Lal",
+    "Mobile No.": 9415030181
+  },
+  {
+    "Reg. No.": "B-10",
+    "Name": "Mr. Veerendra Kumar Khandelwal",
+    "Firm Name": "M/S Khandelwal Brothers",
+    "Mobile No.": 9415031028
+  },
+  {
+    "Reg. No.": "B-11",
+    "Name": "Mr. Brijendra kumar Agrawal",
+    "Firm Name": "M/S Ajai Abhushan Bhandar",
+    "Mobile No.": 9415030142
+  },
+  {
+    "Reg. No.": "B-12",
+    "Name": "Mr. Atul Agarwal Kilpan",
+    "Firm Name": "M/S Alankar Jewellers",
+    "Mobile No.": 9415060206
+  },
+  {
+    "Reg. No.": "B-13",
+    "Name": "Mr. Sanjay Arora",
+    "Firm Name": " M/S Union Radio & Electronics Co.",
+    "Mobile No.": 9415030805
+  },
+  {
+    "Reg. No.": "B-14",
+    "Name": "Mr. ANAND Suri",
+    "Firm Name": "M/S Suri Automobiles ",
+    "Mobile No.": 9415031019
+  },
+  {
+    "Reg. No.": "B-15",
+    "Name": "Mr. Sudheer Chug",
+    "Firm Name": "M/S Nand Ram Balak Ram Dealers",
+    "Mobile No.": 9415057106
+  },
+  {
+    "Reg. No.": "B-16",
+    "Name": "M/S Vinod Agrawal",
+    "Firm Name": "M/S Singhal Sales Corporation",
+    "Mobile No.": "9839100637\r\n9839100636\r\n"
+  },
+  {
+    "Reg. No.": "B-17",
+    "Name": "Mr. Ajay Sijaria",
+    "Firm Name": "M/S Sijaria Sales Corporation",
+    "Mobile No.": 9415055700
+  },
+  {
+    "Reg. No.": "B-18",
+    "Name": "Mr. Mohan Agrawal",
+    "Firm Name": "M/S Agrawal Jewellers ",
+    "Mobile No.": 9936240040
+  },
+  {
+    "Reg. No.": "B-19",
+    "Name": "Mr. Saligram Rai",
+    "Firm Name": "M/S Pavan Traders",
+    "Mobile No.": 9415031931
+  },
+  {
+    "Reg. No.": "B-20",
+    "Name": "Mr. Sajay Agrawal",
+    "Firm Name": "M/S Rajasthan Marbles",
+    "Mobile No.": 9415031353
+  },
+  {
+    "Reg. No.": "B-21",
+    "Name": "Mr. Vinay Kumar Agrawal",
+    "Firm Name": "M/S Vinay Sanitary & Marble House",
+    "Mobile No.": 9839251751
+  },
+  {
+    "Reg. No.": "B-22",
+    "Name": "Mr, Surendra Khandelwal",
+    "Firm Name": "M/S Virendra Traders",
+    "Mobile No.": 9415030942
+  },
+  {
+    "Reg. No.": "B-23",
+    "Name": "Mr. Hitesh Kanal",
+    "Firm Name": "M/S Kanal Automobiles Pvt Ltd",
+    "Mobile No.": 9415030791
+  },
+  {
+    "Reg. No.": "B-24",
+    "Name": "Mr. Sanjai Rai",
+    "Firm Name": "M/S Subhga Enterprises",
+    "Mobile No.": 9415031310
+  },
+  {
+    "Reg. No.": "B-25",
+    "Name": "Mr. Abhinav Agrawal",
+    "Firm Name": "Advocate",
+    "Mobile No.": 9235565001
+  },
+  {
+    "Reg. No.": "B-26",
+    "Name": "Mr. Manish Vijayvargiya",
+    "Firm Name": "M/S Vijay Plywoods",
+    "Mobile No.": 9838618399
+  },
+  {
+    "Reg. No.": "B-27",
+    "Name": "Mr. Harish Patpatia",
+    "Firm Name": "M/S Celebration Super Market",
+    "Mobile No.": 9415092690
+  },
+  {
+    "Reg. No.": "B-28",
+    "Name": "E. Mukesh Gupta",
+    "Firm Name": "M/S Manaswin Technologies",
+    "Mobile No.": 9889021801
+  },
+  {
+    "Reg. No.": "B-29",
+    "Name": "Mr. Mukesh Jeswani",
+    "Firm Name": "M/S A To Z Bearing Centre",
+    "Mobile No.": 9415030097
+  },
+  {
+    "Reg. No.": "B-30",
+    "Name": "Mr. Kanhaiya Lal Jaiswani/ Mr. Amit Mishra",
+    "Firm Name": "M/S DNM Services",
+    "Mobile No.": 9794882000
+  },
+  {
+    "Reg. No.": "B-31",
+    "Name": "Mr. Akhilesh Chandra Gupta",
+    "Firm Name": "M/S Akhil Herbals",
+    "Mobile No.": 9415113176
+  },
+  {
+    "Reg. No.": "B-32",
+    "Name": " Mr. Anuj Agrawal ",
+    "Firm Name": "M/S Ganesh Bijli Bhandar",
+    "Mobile No.": 9839942612
+  },
+  {
+    "Reg. No.": "B-33",
+    "Name": "Mr. Mahesh Chand Agarwal",
+    "Firm Name": "M/S Shanti Padam Emporium Private Limited",
+    "Mobile No.": 9415031134
+  },
+  {
+    "Reg. No.": "B-34",
+    "Name": "Mr. Manish Newalkar",
+    "Firm Name": "M/S Mahalaxmi Agencies",
+    "Mobile No.": 9415113341
+  },
+  {
+    "Reg. No.": "B-35",
+    "Name": "Mr. Sameer Chawla",
+    "Firm Name": "M/S KBC Enterprises",
+    "Mobile No.": 9839756960
+  },
+  {
+    "Reg. No.": "B-36",
+    "Name": "Mr. Sanjay Paul",
+    "Firm Name": "M/S Daksh Enterprises",
+    "Mobile No.": 9415030761
+  },
+  {
+    "Reg. No.": "B-37",
+    "Name": "Mr. Ashok Kathal",
+    "Firm Name": "M/S Dwarka Prasad Kathal",
+    "Mobile No.": 9415031817
+  },
+  {
+    "Reg. No.": "B-38",
+    "Name": "Mr. Devendra Kumar Nagaria",
+    "Firm Name": "M/S DEVENDRA KUMAR & COMPANY",
+    "Mobile No.": 9415030787
+  },
+  {
+    "Reg. No.": "B-39",
+    "Name": "Mr. Atul Gupta",
+    "Firm Name": "M/S Harilila Earthmovers",
+    "Mobile No.": 9415113394
+  },
+  {
+    "Reg. No.": "B-40",
+    "Name": "Mr. Pradeep Kumar Agrawal",
+    "Firm Name": "M/S Amit Steel Corporation",
+    "Mobile No.": 9415113197
+  },
+  {
+    "Reg. No.": "B-41",
+    "Name": "Mr. Pankaj Tripathi",
+    "Firm Name": "M/S Om Traders",
+    "Mobile No.": 9956399444
+  },
+  {
+    "Reg. No.": "B-42",
+    "Name": "Mr. Yash Chawla",
+    "Firm Name": "M/S Mercury Cleaners",
+    "Mobile No.": 9415055914
+  },
+  {
+    "Reg. No.": "B-43",
+    "Name": "Mr. Gyan Chandra Gangwani",
+    "Firm Name": "M/S Himalaya Sarees",
+    "Mobile No.": 9453879575
+  },
+  {
+    "Reg. No.": "B-44",
+    "Name": "Mr. Hemant Rusia",
+    "Firm Name": "M/S Kamadgiri Traders",
+    "Mobile No.": 9451263425
+  },
+  {
+    "Reg. No.": "B-45",
+    "Name": "Mr. Pukhraj Jain",
+    "Firm Name": "M/S Tayalco Automobiles",
+    "Mobile No.": 9415112570
+  },
+  {
+    "Reg. No.": "B-46",
+    "Name": "Mr. Gaurav Agrawal",
+    "Firm Name": "M/S Sitaram & Brothers",
+    "Mobile No.": 9473869669
+  },
+  {
+    "Reg. No.": "B-47",
+    "Name": "Mr. Vinay Gupta",
+    "Firm Name": "M/S Hotel Sheela Shree Plaza",
+    "Mobile No.": 7309030991
+  },
+  {
+    "Reg. No.": "B-48",
+    "Name": "Mr. Uday Prakash Agrawal",
+    "Firm Name": "M/S Santosh Cloth Store",
+    "Mobile No.": 9415113985
+  },
+  {
+    "Reg. No.": "B-49",
+    "Name": "Mr. Sudhir Gupta",
+    "Firm Name": "M/S Om Prakash Ram Prakash",
+    "Mobile No.": 9415113047
+  },
+  {
+    "Reg. No.": "B-50",
+    "Name": "Mr. Rajeev Agarwal (Raju Biso)",
+    "Firm Name": "M/S Shravan Departmental Store",
+    "Mobile No.": 9454193582
+  },
+  {
+    "Reg. No.": "B-51",
+    "Name": "Mr. Sulabh Agrawal",
+    "Firm Name": "M/S Bollywood Collection",
+    "Mobile No.": 9936663861
+  },
+  {
+    "Reg. No.": "B-52",
+    "Name": "Mr. Rajeev Kumar Agrawal",
+    "Firm Name": "M/S Vishnu Enterprises",
+    "Mobile No.": 9415030317
+  },
+  {
+    "Reg. No.": "B-53",
+    "Name": "Mr. Vivek Agrawal",
+    "Firm Name": "M/S Shri Agrawal Bullion",
+    "Mobile No.": 9935523536
+  },
+  {
+    "Reg. No.": "B-54",
+    "Name": "Mr. Rajendra Patwari",
+    "Firm Name": "M/S Rajendra Stats",
+    "Mobile No.": 9415412842
+  },
+  {
+    "Reg. No.": "B-55",
+    "Name": "Mr. Navin Kumar Maheshwari",
+    "Firm Name": "M/S Shanti Prasad & Sons",
+    "Mobile No.": 9415031034
+  },
+  {
+    "Reg. No.": "B-56",
+    "Name": "Mr. Manoj Arora",
+    "Firm Name": "M/S Pawan Medical Agencies",
+    "Mobile No.": 9415113510
+  },
+  {
+    "Reg. No.": "B-57",
+    "Name": "Mr. Vanshi Premani",
+    "Firm Name": "M/S Premani suppliers",
+    "Mobile No.": 9889191232
+  },
+  {
+    "Reg. No.": "B-58",
+    "Name": "Mr. Rajendra Kumar Gupta",
+    "Firm Name": "M/S RA Associates",
+    "Mobile No.": 9415030595
+  },
+  {
+    "Reg. No.": "B-59",
+    "Name": "Mr. Rahul Agrawal",
+    "Firm Name": "M/S Hari Computer",
+    "Mobile No.": 9415055536
+  },
+  {
+    "Reg. No.": "B-60",
+    "Name": "Mr. AJAY Sahu",
+    "Firm Name": "M/S AJAY ENTERPRISES",
+    "Mobile No.": 9415031509
+  },
+  {
+    "Reg. No.": "B-61",
+    "Name": "Mr. Sunil Kumar Gupta ",
+    "Firm Name": "M/S Abhinav Fashion",
+    "Mobile No.": 9415123741
+  },
+  {
+    "Reg. No.": "B-62",
+    "Name": "Mr. Sanjeev Puri/ Mr. Dinkar Puri",
+    "Firm Name": "M/S Puri Diesels",
+    "Mobile No.": 7773855999
+  },
+  {
+    "Reg. No.": "B-63",
+    "Name": "Mr. Anant Kumar Jain",
+    "Firm Name": "M/S Shree Paras Nath Iron Store",
+    "Mobile No.": 9415057164
+  },
+  {
+    "Reg. No.": "B-64",
+    "Name": "Mr Prakash Chandra Agrawal",
+    "Firm Name": "M/S Bhagwan Das Prakash chand saraf",
+    "Mobile No.": 9935649040
+  },
+  {
+    "Reg. No.": "B-65",
+    "Name": "Mr Satish Chandra Agrawal",
+    "Firm Name": "M/S Dira Foundation (Sitaram Hariram) ",
+    "Mobile No.": 9415112947
+  },
+  {
+    "Reg. No.": "B-66",
+    "Name": "Mr. Sunil Kumar Modi",
+    "Firm Name": "M/S Jain Motors & Tractors",
+    "Mobile No.": 9415030657
+  },
+  {
+    "Reg. No.": "B-67",
+    "Name": "Mr. Syam Sunder Agarwal",
+    "Firm Name": "M/S Agarwal & Company",
+    "Mobile No.": 9653004271
+  },
+  {
+    "Reg. No.": "B-68",
+    "Name": "M/S Monoj Kumar Gupta",
+    "Firm Name": "M/S Navjeevan Medical Store, Narayan Hospital",
+    "Mobile No.": 9415112877
+  },
+  {
+    "Reg. No.": "B-69",
+    "Name": "Mr. Pramod Agrawal",
+    "Firm Name": "M/S Radhe Shyam Gokul Prashad",
+    "Mobile No.": 9415031321
+  },
+  {
+    "Reg. No.": "B-70",
+    "Name": "Mr. Pavutra Khanna",
+    "Firm Name": "M/S Natraj Automobiles Pvt Ltd",
+    "Mobile No.": 9415113515
+  },
+  {
+    "Reg. No.": "B-71",
+    "Name": "Mr. Vijay Kumar Agrawal",
+    "Firm Name": "M/S Agarwal & Company",
+    "Mobile No.": 9415031602
+  },
+  {
+    "Reg. No.": "B-72",
+    "Name": "Mr. Arpit Seth",
+    "Firm Name": "M/S Sunrise Hotel Jhansi",
+    "Mobile No.": 9999109320
+  },
+  {
+    "Reg. No.": "B-73",
+    "Name": "Mr. Man Mohan Gaida",
+    "Firm Name": "M/S Gaida Lights",
+    "Mobile No.": 7860818163
+  },
+  {
+    "Reg. No.": "B-74",
+    "Name": "Mr. Anupam Taraiya",
+    "Firm Name": "M/S Taraiya Agencies",
+    "Mobile No.": 9455670002
+  },
+  {
+    "Reg. No.": "B-75",
+    "Name": "Mr. Alakh Praksh Sahu",
+    "Firm Name": "M/S Jhansi Arms Store",
+    "Mobile No.": 9450079126
+  },
+  {
+    "Reg. No.": "B-76",
+    "Name": "Mr. Atul Agrawal",
+    "Firm Name": "M/S Ashi  Products",
+    "Mobile No.": 6388223124
+  },
+  {
+    "Reg. No.": "B-77",
+    "Name": "Mr. Dilip Kumar Agrawal",
+    "Firm Name": "M/S Singhal Sales Corporation",
+    "Mobile No.": 9839100636
+  },
+  {
+    "Reg. No.": "B-78",
+    "Name": "Mr. Sohan Modi",
+    "Firm Name": "M/S Modi Fancy Light",
+    "Mobile No.": 9415194611
+  },
+  {
+    "Reg. No.": "B-79",
+    "Name": "Mr. Mukesh Agrawal",
+    "Firm Name": "M/S Modern Paints Store",
+    "Mobile No.": 9415092633
+  },
+  {
+    "Reg. No.": "B-80",
+    "Name": "Mr. Jitendra Agrawal",
+    "Firm Name": "M/S Om Distributors",
+    "Mobile No.": 9415031570
+  },
+  {
+    "Reg. No.": "B-81",
+    "Name": "Mr. Sanjay Agrawal",
+    "Firm Name": "M/S Bhartiya Chemist",
+    "Mobile No.": 9415030756
+  },
+  {
+    "Reg. No.": "B-82",
+    "Name": "Mr. Saket Agarwal",
+    "Firm Name": "M/S Shanti Padam Emporium Private Limited",
+    "Mobile No.": 8004939624
+  },
+  {
+    "Reg. No.": "B-83",
+    "Name": "Mr. Samit Agrawal",
+    "Firm Name": "M/S Damodar Das Bhagwan Das Jwellers",
+    "Mobile No.": 9415031386
+  },
+  {
+    "Reg. No.": "B-84",
+    "Name": "Mr. Bipin Sighal",
+    "Firm Name": "M/S Pitambra Creance",
+    "Mobile No.": 9936290909
+  },
+  {
+    "Reg. No.": "B-85",
+    "Name": "Mr. Sidhant Agrawal",
+    "Firm Name": "M/S Agarwal Jewellers",
+    "Mobile No.": 7355534170
+  },
+  {
+    "Reg. No.": "B-86",
+    "Name": "Mr. Rahul Agrawal",
+    "Firm Name": "M/S Agrawal Steels",
+    "Mobile No.": 9889359999
+  },
+  {
+    "Reg. No.": "B-87",
+    "Name": "Mr. Rohit Agrawal",
+    "Firm Name": "M/S Jassu Ram Behari Lal",
+    "Mobile No.": 9554955999
+  },
+  {
+    "Reg. No.": "B-88",
+    "Name": "Mr. Gaurav Arora",
+    "Firm Name": "M/S Agrawal Steels",
+    "Mobile No.": 7897342222
+  },
+  {
+    "Reg. No.": "B-89",
+    "Name": "Mr. Sorabh Agrawal",
+    "Firm Name": "M/S Vishnu Marketing",
+    "Mobile No.": 9919793999
+  },
+  {
+    "Reg. No.": "B-90",
+    "Name": "Smt. Preeti Khanna",
+    "Firm Name": "M/S Nataraj Mobiles Pvt Ltd",
+    "Mobile No.": 9161866662
+  },
+  {
+    "Reg. No.": "B-91",
+    "Name": "Mr. Vaibhav Khanna",
+    "Firm Name": "M/S Nataraj Mobiles Pvt Ltd",
+    "Mobile No.": 7571004867
+  },
+  {
+    "Reg. No.": "B-92",
+    "Name": "Smt. Shivani Khanna",
+    "Firm Name": "M/S Nataraj Mobiles Pvt Ltd",
+    "Mobile No.": 9554965749
+  },
+  {
+    "Reg. No.": "B-93",
+    "Name": "Mr. Nishant Shukla",
+    "Firm Name": "M/S Hotel The Marvellous",
+    "Mobile No.": 9453031311
+  },
+  {
+    "Reg. No.": "B-94",
+    "Name": "Mr. Mukul Agrawal",
+    "Firm Name": "M/S Triveni Furnishing",
+    "Mobile No.": 9935156849
+  },
+  {
+    "Reg. No.": "B-95",
+    "Name": "Mr. Chinmay Agrawal",
+    "Firm Name": "M/S Vidyut Bhawan",
+    "Mobile No.": 9599749324
+  },
+  {
+    "Reg. No.": "B-96",
+    "Name": "Mr. Abhishek Vijayvergiya",
+    "Firm Name": "M/S Hotel Abhishek",
+    "Mobile No.": 9415135851
+  },
+  {
+    "Reg. No.": "B-97",
+    "Name": "Mr. Rohit Mittal",
+    "Firm Name": "M/S MITTAL ASSOCIATES",
+    "Mobile No.": 9927852804
+  },
+  {
+    "Reg. No.": "B-98",
+    "Name": "Mr. Rakesh Singh ",
+    "Firm Name": "M/S Jhansi Gas Service",
+    "Mobile No.": 9795460123
+  },
+  {
+    "Reg. No.": "B-99",
+    "Name": "Mr. Aman Madan",
+    "Firm Name": "M/S Namo Homes",
+    "Mobile No.": 9415057799
+  },
+  {
+    "Reg. No.": "B-100",
+    "Name": "Mr. Rakesh Kumar Gupta",
+    "Firm Name": "M/S Mahadev Construction",
+    "Mobile No.": 9415113567
+  },
+  {
+    "Reg. No.": "B-101",
+    "Name": "Mr. Suveer Swaroop Suri",
+    "Firm Name": "M/S Suri Automobiles",
+    "Mobile No.": 9415135043
+  },
+  {
+    "Reg. No.": "B-102",
+    "Name": "Mr. Mayur Agrawal",
+    "Firm Name": "M/S Swastik Infra Developers",
+    "Mobile No.": 9935084448
+  },
+  {
+    "Reg. No.": "B-103",
+    "Name": "Mr. Ashutosh Mishra",
+    "Firm Name": "M/S Prema Kunj Resort",
+    "Mobile No.": 9415030187
+  },
+  {
+    "Reg. No.": "B-104",
+    "Name": "Mr. Alok Agrawal",
+    "Firm Name": "M/S Shree Mahamaya Jewellers Pvt Ltd",
+    "Mobile No.": 9415092900
+  },
+  {
+    "Reg. No.": "B-105",
+    "Name": "Mr. Sanjay Gupta",
+    "Firm Name": "M/S Hotel K-3 Club Residency",
+    "Mobile No.": 9415060151
+  },
+  {
+    "Reg. No.": "B-106",
+    "Name": "Mr. Sammi Goyal",
+    "Firm Name": "M/S Pitambara Traders",
+    "Mobile No.": 9415021242
+  },
+  {
+    "Reg. No.": "B-107",
+    "Name": "Mr. Manoj Agrawal",
+    "Firm Name": "M/S Sanjay Chemist",
+    "Mobile No.": 9415057334
+  },
+  {
+    "Reg. No.": "B-108",
+    "Name": "Mr. Puneet Agrawal",
+    "Firm Name": "M/S Gopal Agencies",
+    "Mobile No.": 9453025525
+  },
+  {
+    "Reg. No.": "B-109",
+    "Name": "Mr. Sandeep Anandani",
+    "Firm Name": "M/S Vasuraj Creations",
+    "Mobile No.": 9415055771
+  },
+  {
+    "Reg. No.": "B-110",
+    "Name": "Mr. Anoop Kumar Gupta",
+    "Firm Name": "M/S Vikash Trading Company",
+    "Mobile No.": 8004919911
+  },
+  {
+    "Reg. No.": "B-111",
+    "Name": "Mr. Rajendra Lumar Agrawal",
+    "Firm Name": "M/S Laxmi chemist",
+    "Mobile No.": 7080803041
+  },
+  {
+    "Reg. No.": "B-112",
+    "Name": "Mr. Raghav Agrawal",
+    "Firm Name": "M/S Dira Foundation (Sitaram Hariram) ",
+    "Mobile No.": 7080803041
+  }
+]

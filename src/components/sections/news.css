@@ -1,0 +1,30 @@
+.scroll-container {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Only animate scroll on medium screens and up */
+@media (min-width: 768px) {
+  .scroll-content {
+    display: flex;
+    flex-direction: column;
+    animation: scroll-up 50s linear infinite;
+  }
+}
+
+@media (max-width: 767px) {
+  .scroll-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
