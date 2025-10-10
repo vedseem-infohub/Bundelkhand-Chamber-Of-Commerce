@@ -1,40 +1,26 @@
-'use client';
-import Image from 'next/image';
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 export default function ContactPage() {
   const scrollRef = useRef(null);
   const { ref: headingRef, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const formRef = useRef(null); // ✅ Restored formRef
+  const formRef = useRef(null);
   const alertTimeoutRef = useRef(null);
 
   const [alert, setAlert] = useState({ show: false, message: '', isError: false });
   const [mounted, setMounted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Restored your original image paths.
+  // For these to work, the images must be in the `public` folder of your Next.js project.
   const contact = [
-    { img: "/contact1.jpg" },
-    { img: "/contact2.jpg" },
-    { img: "/contact3.jpg" },
-    { img: "/contact4.jpg" },
-    { img: "/contact6.jpg" },
-    { img: "/contact7.jpg" },
-    { img: "/contact8.jpg" },
-    { img: "/contact9.jpg" },
-    { img: "/contact10.jpg" },
-    { img: "/contact11.jpg" },
-    { img: "/contact12.jpg" },
-    { img: "/contact13.jpg" },
-    { img: "/contact14.jpg" },
-    { img: "/contact15.jpg" },
-    { img: "/contact16.jpeg" },
-    { img: "/contact17.jpg" },
-    { img: "/contact19.jpg" },
-    { img: "/contact20.jpg" },
+    { img: "/contact1.jpg" }, { img: "/contact2.jpg" }, { img: "/contact3.jpg" },
+    { img: "/contact4.jpg" }, { img: "/contact6.jpg" }, { img: "/contact7.jpg" },
+    { img: "/contact8.jpg" }, { img: "/contact9.jpg" }, { img: "/contact10.jpg" },
+    { img: "/contact11.jpg" }, { img: "/contact12.jpg" }, { img: "/contact13.jpg" },
+    { img: "/contact14.jpg" }, { img: "/contact15.jpg" }, { img: "/contact16.jpeg" },
+    { img: "/contact17.jpg" }, { img: "/contact19.jpg" }, { img: "/contact20.jpg" },
   ];
 
-  // ✅ Alert component (unchanged)
+  // Custom Alert Component for user feedback
   const CustomAlert = ({ message, isError, onClose }) => (
     <motion.div
       initial={{ opacity: 0, y: -50 }}
@@ -46,38 +32,46 @@ export default function ContactPage() {
       <span>{isError ? '❌' : '✅'} {message}</span>
       <button
         onClick={onClose}
-        className="ml-auto bg-white text-black px-2 py-1 rounded-full hover:bg-gray-200"
+        className="ml-auto bg-transparent text-white font-bold text-xl leading-none hover:opacity-75"
+        aria-label="Close"
       >
-        ×
+        &times;
       </button>
     </motion.div>
   );
 
-  // Mount tracking
+  // Effect to track component mount for animations
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Scroll effect
+  // Effect for the continuous image scroll
   useEffect(() => {
     if (!mounted) return;
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
+    let animationFrameId;
     let scrollAmount = 0;
-    const scrollSpeed = 1;
+    const scrollSpeed = 0.5;
+
     const step = () => {
-      if (scrollContainer.scrollWidth <= scrollContainer.clientWidth) return;
-      scrollAmount += scrollSpeed;
-      if (scrollAmount >= scrollContainer.scrollWidth) scrollAmount = 0;
-      scrollContainer.scrollLeft = scrollAmount;
+      if (scrollContainer.scrollWidth > scrollContainer.clientWidth) {
+        scrollAmount += scrollSpeed;
+        if (scrollAmount >= scrollContainer.scrollWidth / 2) {
+            scrollAmount = 0; // This creates the seamless loop effect
+        }
+        scrollContainer.scrollLeft = scrollAmount;
+      }
+      animationFrameId = requestAnimationFrame(step);
     };
-    const interval = setInterval(step, 10);
-    return () => clearInterval(interval);
+
+    animationFrameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrameId);
   }, [mounted]);
 
-  // ✅ Alert helper
-  const showAlert = useCallback((message, isError = false, duration = 3000) => {
+  // Helper function to show alerts
+  const showAlert = useCallback((message, isError = false, duration = 4000) => {
     if (alertTimeoutRef.current) clearTimeout(alertTimeoutRef.current);
     setAlert({ show: true, message, isError });
     alertTimeoutRef.current = setTimeout(() => {
@@ -86,32 +80,39 @@ export default function ContactPage() {
     }, duration);
   }, []);
 
-  // Cleanup alert timer
+  // Cleanup alert timer on component unmount
   useEffect(() => {
     return () => {
       if (alertTimeoutRef.current) clearTimeout(alertTimeoutRef.current);
     };
   }, []);
 
-  // ✅ Submit handler
+  // Form submission handler
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
-    const form = e.target;
-    const name = form.elements['name']?.value?.trim();
-    const email = form.elements['email']?.value?.trim();
-    const phone = form.elements['phone']?.value?.trim();
-    const typeMessage = form.elements['typeMessage']?.value?.trim();
+    setIsSubmitting(true);
 
-    if (!name || !email || !phone || !typeMessage) {
-      showAlert('Please fill all required fields', true);
+    const form = e.target;
+    const formData = {
+        name: form.elements['name']?.value?.trim(),
+        email: form.elements['email']?.value?.trim(),
+        phone: form.elements['phone']?.value?.trim(),
+        typeMessage: form.elements['typeMessage']?.value?.trim(),
+    };
+
+    if (!formData.name || !formData.email || !formData.phone || !formData.typeMessage) {
+      showAlert('Please fill all required fields.', true);
+      setIsSubmitting(false);
       return;
     }
 
+    const apiEndpoint = 'https://backend-bcoc.onrender.com/contact';
+
     try {
-      const res = await fetch('https://backend-bcoc.onrender.com/contact', {
+      const res = await fetch(apiEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, typeMessage }),
+        body: JSON.stringify(formData),
       });
 
       const data = await res.json().catch(() => ({}));
@@ -120,17 +121,18 @@ export default function ContactPage() {
         showAlert('Message sent successfully!', false);
         form.reset();
       } else {
-        showAlert(data.error || 'Something went wrong', true);
+        showAlert(data.error || `Error: ${res.status} ${res.statusText}`, true);
       }
     } catch (err) {
-      console.error('Error:', err);
-      showAlert('Network error — please try again later', true);
+      console.error('Submission Error:', err);
+      showAlert('A network error occurred. Please try again later.', true);
+    } finally {
+        setIsSubmitting(false);
     }
   }, [showAlert]);
 
   return (
-    <div className="flex flex-col md:flex-row min-h-fit bg-gray-100">
-      {/* ✅ Animated Alert */}
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 font-sans">
       <AnimatePresence>
         {alert.show && (
           <CustomAlert
@@ -141,28 +143,25 @@ export default function ContactPage() {
         )}
       </AnimatePresence>
 
-      {/* Left scrolling images */}
+      {/* Left side: Scrolling image gallery */}
       <div className="w-full md:w-1/2 p-4 overflow-hidden">
         <div
           ref={scrollRef}
-          className="flex flex-row justify-center items-center gap-6 overflow-x-scroll whitespace-nowrap no-scrollbar"
+          className="flex flex-row items-center gap-6 overflow-x-auto whitespace-nowrap no-scrollbar h-full"
         >
-          {contact.map((item, i) => (
+          {/* By duplicating the array, we create a seamless, infinite loop effect */}
+          {[...contact, ...contact].map((item, i) => (
             <div
               key={i}
-              className="w-80 md:h-[35rem] h-[25rem] bg-orange-500 rounded-xl shadow-md flex-shrink-0"
-              style={{
-                backgroundImage: `url(${item.img})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
+              className="w-80 h-[25rem] md:h-[35rem] bg-orange-300 rounded-xl shadow-lg flex-shrink-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${item.img})` }}
             />
           ))}
         </div>
       </div>
 
-      {/* Right Contact Form */}
-      <div className="w-full relative md:w-1/2 p-8 bg-white shadow-lg flex flex-col overflow-hidden justify-center items-center">
+      {/* Right side: Contact form */}
+      <div className="w-full relative md:w-1/2 p-8 bg-white flex flex-col justify-center items-center">
         <motion.h1
           ref={headingRef}
           initial={{ opacity: 0, y: 20 }}
@@ -177,68 +176,66 @@ export default function ContactPage() {
           <motion.form
             ref={formRef}
             onSubmit={handleSubmit}
+            noValidate
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="space-y-4 w-full max-w-2xl"
           >
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              className="w-full p-3 border text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-1 focus:ring-orange-500"
-            />
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                name="email"
-                placeholder="E-Mail"
-                className="w-full p-3 text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone"
-                className="w-full p-3 text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
-              />
+            <div>
+                <label htmlFor="name" className="sr-only">Name</label>
+                <input id="name" type="text" name="name" placeholder="Name" required className="w-full p-3 border text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-1 focus:ring-orange-500 transition"/>
             </div>
 
-            <textarea
-              name="typeMessage"
-              placeholder="Type Message"
-              className="w-full p-3 text-black h-62 bg-orange-200 rounded-tl-xl border-none rounded-br-xl resize-none focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
+            <div className="flex flex-col sm:flex-row gap-4">
+                 <div className="w-full">
+                    <label htmlFor="email" className="sr-only">E-Mail</label>
+                    <input id="email" type="email" name="email" placeholder="E-Mail" required className="w-full p-3 text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-2 focus:ring-orange-500 transition"/>
+                </div>
+                <div className="w-full">
+                    <label htmlFor="phone" className="sr-only">Phone</label>
+                    <input id="phone" type="tel" name="phone" placeholder="Phone" required className="w-full p-3 text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-2 focus:ring-orange-500 transition"/>
+                </div>
+            </div>
+
+            <div>
+                <label htmlFor="typeMessage" className="sr-only">Message</label>
+                <textarea id="typeMessage" name="typeMessage" placeholder="Type Message" required className="w-full p-3 text-black h-40 bg-orange-200 rounded-tl-xl border-none rounded-br-xl resize-none focus:outline-none focus:ring-2 focus:ring-orange-500 transition"></textarea>
+            </div>
 
             <button
               type="submit"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md font-semibold"
+              disabled={isSubmitting}
+              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md font-semibold w-full sm:w-auto disabled:bg-orange-300 disabled:cursor-not-allowed transition-colors duration-300"
             >
-              Send
+              {isSubmitting ? 'Sending...' : 'Send'}
             </button>
           </motion.form>
         ) : (
+          // Skeleton loader for initial render
           <div aria-hidden="true" className="space-y-4 w-full max-w-2xl">
-            <div className="w-full h-12 bg-orange-200 rounded-lg" />
+            <div className="w-full h-12 bg-orange-200 rounded-lg animate-pulse" />
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="w-full h-12 bg-orange-200 rounded-lg" />
-              <div className="w-full h-12 bg-orange-200 rounded-lg" />
+              <div className="w-full h-12 bg-orange-200 rounded-lg animate-pulse" />
+              <div className="w-full h-12 bg-orange-200 rounded-lg animate-pulse" />
             </div>
-            <div className="w-full h-40 bg-orange-200 rounded-lg" />
-            <div className="w-28 h-10 bg-orange-400 rounded-md" />
+            <div className="w-full h-40 bg-orange-200 rounded-lg animate-pulse" />
+            <div className="w-28 h-10 bg-orange-400 rounded-md animate-pulse" />
           </div>
         )}
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
         .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
         }
       `}</style>
     </div>
   );
 }
+
+
