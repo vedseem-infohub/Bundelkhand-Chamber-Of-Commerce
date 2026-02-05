@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { toast, Toaster } from 'react-hot-toast';
+import { BASE_URL, ENDPOINTS } from '@/config/api';
 
 
 export default function LoginPage() {
@@ -20,34 +21,34 @@ export default function LoginPage() {
 
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  const { email, password } = formData;
+    e.preventDefault();
+    const { email, password } = formData;
 
-  try {
-    const res = await fetch('https://backend-bcoc.onrender.com/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ email, password })
-    });
+    try {
+      const res = await fetch(`${BASE_URL}${ENDPOINTS.LOGIN}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ email, password })
+      });
 
-    const data = await res.json();
-    console.log("Login response:", data);
+      const data = await res.json();
+      console.log("Login response:", data);
 
-   if (res.ok) {
-  toast.success("Login successful!");
-  setTimeout(() => {
-    window.location.href = data.redirectUrl || "/";
-  }, 800);
-}
- else {
-      toast.error(data.message || 'Login failed');
+      if (res.ok) {
+        toast.success("Login successful!");
+        setTimeout(() => {
+          window.location.href = data.redirectUrl || "/";
+        }, 800);
+      }
+      else {
+        toast.error(data.message || 'Login failed');
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      toast.error("Password do not match");
     }
-  } catch (err) {
-    console.error("Login error:", err);
-    toast.error("Password do not match");
-  }
-};
+  };
 
 
 
@@ -63,7 +64,7 @@ export default function LoginPage() {
       <Toaster position="top-center" reverseOrder={false} />
 
 
-      <form onSubmit={handleSubmit}> 
+      <form onSubmit={handleSubmit}>
 
         <div className="container">
           <div className="left">

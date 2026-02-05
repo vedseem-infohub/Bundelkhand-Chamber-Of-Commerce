@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useRef, useState } from 'react';
 import { toast, Toaster } from 'react-hot-toast'; // ✅ Import toast
 import { motion, AnimatePresence } from 'framer-motion';
+import { BASE_URL, ENDPOINTS } from '@/config/api';
 
 export default function SignupPage() {
   const confirmPasswordRef = useRef(null);
@@ -43,38 +44,38 @@ export default function SignupPage() {
   // );
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  const { name, email, password, confirmPassword } = formData;
+    e.preventDefault();
+    const { name, email, password, confirmPassword } = formData;
 
-  if (password !== confirmPassword) {
-    toast.error('Passwords do not match');
-    return;
-  }
-
-  try {
-    const res = await fetch('https://backend-bcoc.onrender.com/signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-        credentials: "include",
-      body: JSON.stringify({ name, email, password }),
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      toast.success('User registered successfully!');
-      setFormData({ name: '', email: '', password: '', confirmPassword: '' });
-        setTimeout(() => {
-    window.location.href = data.redirectUrl || "/";
-  }, 800);
-    } else {
-      toast.error(data.message || 'Signup failed');
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+      return;
     }
-  } catch (err) {
-    console.error("Signup error:", err);
-    toast.error(`Failed to connect: ${err.message}`);
-  }
-};
+
+    try {
+      const res = await fetch(`${BASE_URL}${ENDPOINTS.SIGNUP}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: "include",
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        toast.success('User registered successfully!');
+        setFormData({ name: '', email: '', password: '', confirmPassword: '' });
+        setTimeout(() => {
+          window.location.href = data.redirectUrl || "/";
+        }, 800);
+      } else {
+        toast.error(data.message || 'Signup failed');
+      }
+    } catch (err) {
+      console.error("Signup error:", err);
+      toast.error(`Failed to connect: ${err.message}`);
+    }
+  };
 
 
   return (
@@ -90,9 +91,9 @@ export default function SignupPage() {
           rel="stylesheet"
         />
       </Head>
-      
-      
-       <Toaster position="top-center" reverseOrder={false} />
+
+
+      <Toaster position="top-center" reverseOrder={false} />
 
       <form onSubmit={handleSubmit}>
         {/* <AnimatePresence>

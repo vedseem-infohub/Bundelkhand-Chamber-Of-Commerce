@@ -6,9 +6,9 @@ import Nav from '@/components/sections/Nav';
 import Footer from '@/components/sections/Footer';
 import { AnimatePresence, motion } from 'framer-motion';
 import toast, { Toaster } from "react-hot-toast";
+import { BASE_URL, ENDPOINTS } from '@/config/api';
 
 const tabs = ['Service Members', 'Industry Members', 'Business Members', 'Enroll Now'];
-const BASE_URL = "https://backend-bcoc.onrender.com";
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 10 },
@@ -18,7 +18,7 @@ const fadeInVariants = {
 export default function Page() {
   const [activeTab, setActiveTab] = useState('Service Members');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   // Consolidated state for data fetching
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -38,15 +38,15 @@ export default function Page() {
     else if (activeTab === 'Business Members') endpoint = 'business';
 
     if (!endpoint) {
-        setData([]); 
-        return;
+      setData([]);
+      return;
     }
 
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
       try {
-        const res = await fetch(`${BASE_URL}/memberZone/${endpoint}?page=${pagination.currentPage}&limit=20`);
+        const res = await fetch(`${BASE_URL}${ENDPOINTS.MEMBER_ZONE_DATA(endpoint)}?page=${pagination.currentPage}&limit=20`);
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         const paginatedResponse = await res.json();
         setData(paginatedResponse.data);
@@ -74,7 +74,7 @@ export default function Page() {
       setPagination(prev => ({ ...prev, currentPage: prev.currentPage - 1 }));
     }
   };
-  
+
   // Dynamic table headers
   const getTableHeaders = () => {
     switch (activeTab) {
@@ -88,7 +88,7 @@ export default function Page() {
     }
   };
   const tableHeaders = getTableHeaders();
-  
+
   // Enroll Now form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -101,7 +101,7 @@ export default function Page() {
     };
 
     try {
-      const res = await fetch(`${BASE_URL}/memberZone/enrollNow`, {
+      const res = await fetch(`${BASE_URL}${ENDPOINTS.MEMBER_ZONE_ENROLL}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -121,11 +121,11 @@ export default function Page() {
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
-     <div>
-      <Toaster position="top-right" reverseOrder={false} />
-      <Nav className="fixed top-0 left-0 w-full z-50 bg-white shadow" />
-     </div>
-     
+      <div>
+        <Toaster position="top-right" reverseOrder={false} />
+        <Nav className="fixed top-0 left-0 w-full z-50 bg-white shadow" />
+      </div>
+
       {/* Hero Section */}
       <div className="px-10">
         <div

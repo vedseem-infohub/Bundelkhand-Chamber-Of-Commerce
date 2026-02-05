@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { BASE_URL, ENDPOINTS } from '@/config/api';
 
 function Page() {
   const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ function Page() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("https://backend-bcoc.onrender.com/send-form", {
+      const res = await fetch(`${BASE_URL}${ENDPOINTS.SEND_FORM}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -327,9 +328,8 @@ function Page() {
         {/* Toast Message */}
         {message && (
           <div
-            className={`fixed bottom-6 right-6 px-4 py-3 rounded-md shadow-lg text-white ${
-              isError ? "bg-red-600" : "bg-green-600"
-            }`}
+            className={`fixed bottom-6 right-6 px-4 py-3 rounded-md shadow-lg text-white ${isError ? "bg-red-600" : "bg-green-600"
+              }`}
           >
             {message}
           </div>

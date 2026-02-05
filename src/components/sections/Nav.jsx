@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useState, useEffect } from "react";
 import { HiOutlineX } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -7,14 +7,13 @@ import Link from "next/link";
 import { User } from "lucide-react";
 import { usePathname } from "next/navigation";
 import LoadingSpinner from "../ui/LoadingSpinner";
+import { BASE_URL, ENDPOINTS } from "@/config/api";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [username, setUsername] = useState(null);
   const pathname = usePathname();
- 
-
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -25,35 +24,34 @@ function Nav() {
     { href: "/media", label: "Media" },
     { href: "/join-bcci", label: "Join BCCI" },
     // { href: "/joinBcci", label: "Join BCCI" }
-
   ];
 
-  // useEffect(() => {
-  //   fetch("https://backend-bcoc.onrender.com/me", {
-  //      method: "GET",
-  //     credentials: "include",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.authenticated) {
-  //         setUsername(data.user.name);
-  //       }
-  //     })
-  //     .catch((err) => console.error("Session check error:", err));
-  // }, []);
+  useEffect(() => {
+    fetch(`${BASE_URL}${ENDPOINTS.ME}`, {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.data?.user) {
+          setUsername(data.data.user.name);
+        }
+      })
+      .catch((err) => console.error("Session check error:", err));
+  }, []);
 
-  // const handleLogout = () => {
-  //   fetch("/logout", {
-  //     method: "POST",
-  //     credentials: "include",
-  //   })
-  //     .then((res) => res.json())
-  //     .then(() => {
-  //       setUsername(null);
-  //       window.location.href = "/";
-  //     })
-  //     .catch((err) => console.error("Logout error:", err));
-  // };
+  const handleLogout = () => {
+    fetch(`${BASE_URL}${ENDPOINTS.LOGOUT}`, {
+      method: "POST",
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setUsername(null);
+        window.location.href = "/";
+      })
+      .catch((err) => console.error("Logout error:", err));
+  };
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -64,12 +62,17 @@ function Nav() {
 
   return (
     <div className="w-full md:sticky md:top-0 fixed top-0 z-50 bg-white pb-1">
-
       {/* Top Section */}
       <div className="flex justify-between items-center px-4 md:px-10 pt-4 relative">
         {/* Left Logo */}
         <div className="w-[80px] sm:w-[120px] md:w-[70px] lg:w-[70px] xl:w-[110px]">
-          <a href="/"><img src="/logo.png" alt="logo" className="lg:w-[100px] h-full object-contain" /></a>
+          <a href="/">
+            <img
+              src="/logo.png"
+              alt="logo"
+              className="lg:w-[100px] h-full object-contain"
+            />
+          </a>
         </div>
 
         {/* Title */}
@@ -93,11 +96,18 @@ function Nav() {
 
         {/* Right Statue */}
         <div className="hidden md:block w-[80px] sm:w-[100px] md:w-[60px] lg:w-[100px]">
-          <img src="/statue.png" alt="statue" className="w-full md:w-[80px] lg:w-[100px] h-full object-contain" />
+          <img
+            src="/statue.png"
+            alt="statue"
+            className="w-full md:w-[80px] lg:w-[100px] h-full object-contain"
+          />
         </div>
 
         {/* Mobile Menu Icon */}
-        <div className="md:hidden z-30 p-2" onClick={() => setMenuOpen(!menuOpen)}>
+        <div
+          className="md:hidden z-30 p-2"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           {menuOpen ? (
             <HiOutlineX className="text-3xl text-[#F15A24]" />
           ) : (
@@ -119,10 +129,11 @@ function Nav() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`px-3 py-2 rounded-md transition-colors ${pathname === link.href
-                    ? "bg-white text-orange-500"
-                    : "text-white hover:bg-orange-300 hover:opacity-100"
-                    }`}
+                  className={`px-3 py-2 rounded-md transition-colors ${
+                    pathname === link.href
+                      ? "bg-white text-orange-500"
+                      : "text-white hover:bg-orange-300 hover:opacity-100"
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -186,12 +197,39 @@ function Nav() {
               className="md:hidden w-full bg-[#F15A24] rounded-tl-3xl rounded-br-3xl px-4 mt-5 z-40 overflow-hidden"
             >
               <ul className="flex flex-col gap-4 text-white uppercase font-semibold text-sm py-6">
-                <Link href="/" className="border-b border-white pb-1">Home</Link>
-                <Link href="/theChambers" className="border-b border-white pb-2 mt-[-5px]">The Chamber</Link>
-                <Link href="/servicesPage" className="border-b border-white pb-2 mt-[-5px]">Services</Link>
-                <Link href="/sectors" className="border-b border-white pb-2 mt-[-5px]">Sectors</Link>
-                <Link href="/memberZone" className="border-b border-white pb-2 mt-[-5px]">Member’s Zone</Link>
-                <Link href="/media" className="border-b border-white pb-2 mt-[-5px]">Media</Link>
+                <Link href="/" className="border-b border-white pb-1">
+                  Home
+                </Link>
+                <Link
+                  href="/theChambers"
+                  className="border-b border-white pb-2 mt-[-5px]"
+                >
+                  The Chamber
+                </Link>
+                <Link
+                  href="/servicesPage"
+                  className="border-b border-white pb-2 mt-[-5px]"
+                >
+                  Services
+                </Link>
+                <Link
+                  href="/sectors"
+                  className="border-b border-white pb-2 mt-[-5px]"
+                >
+                  Sectors
+                </Link>
+                <Link
+                  href="/memberZone"
+                  className="border-b border-white pb-2 mt-[-5px]"
+                >
+                  Member’s Zone
+                </Link>
+                <Link
+                  href="/media"
+                  className="border-b border-white pb-2 mt-[-5px]"
+                >
+                  Media
+                </Link>
                 <div className="flex justify-around">
                   {username ? (
                     <>

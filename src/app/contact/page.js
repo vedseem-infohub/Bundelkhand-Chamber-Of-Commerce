@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { BASE_URL, ENDPOINTS } from '@/config/api';
 
 export default function ContactPage() {
   const scrollRef = useRef(null);
@@ -64,7 +65,7 @@ export default function ContactPage() {
       if (scrollContainer.scrollWidth > scrollContainer.clientWidth) {
         scrollAmount += scrollSpeed;
         if (scrollAmount >= scrollContainer.scrollWidth / 2) {
-            scrollAmount = 0; // This creates the seamless loop effect
+          scrollAmount = 0; // This creates the seamless loop effect
         }
         scrollContainer.scrollLeft = scrollAmount;
       }
@@ -99,10 +100,10 @@ export default function ContactPage() {
 
     const form = e.target;
     const formData = {
-        name: form.elements['name']?.value?.trim(),
-        email: form.elements['email']?.value?.trim(),
-        phone: form.elements['phone']?.value?.trim(),
-        typeMessage: form.elements['typeMessage']?.value?.trim(),
+      name: form.elements['name']?.value?.trim(),
+      email: form.elements['email']?.value?.trim(),
+      phone: form.elements['phone']?.value?.trim(),
+      typeMessage: form.elements['typeMessage']?.value?.trim(),
     };
 
     if (!formData.name || !formData.email || !formData.phone || !formData.typeMessage) {
@@ -111,7 +112,7 @@ export default function ContactPage() {
       return;
     }
 
-    const apiEndpoint = 'https://backend-bcoc.onrender.com/contact';
+    const apiEndpoint = `${BASE_URL}${ENDPOINTS.CONTACT}`;
 
     try {
       const res = await fetch(apiEndpoint, {
@@ -132,7 +133,7 @@ export default function ContactPage() {
       console.error('Submission Error:', err);
       showAlert('A network error occurred. Please try again later.', true);
     } finally {
-        setIsSubmitting(false);
+      setIsSubmitting(false);
     }
   }, [showAlert]);
 
@@ -188,24 +189,24 @@ export default function ContactPage() {
             className="space-y-4 w-full max-w-2xl"
           >
             <div>
-                <label htmlFor="name" className="sr-only">Name</label>
-                <input id="name" type="text" name="name" placeholder="Name" required className="w-full p-3 border text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-1 focus:ring-orange-500 transition"/>
+              <label htmlFor="name" className="sr-only">Name</label>
+              <input id="name" type="text" name="name" placeholder="Name" required className="w-full p-3 border text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-1 focus:ring-orange-500 transition" />
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-                 <div className="w-full">
-                    <label htmlFor="email" className="sr-only">E-Mail</label>
-                    <input id="email" type="email" name="email" placeholder="E-Mail" required className="w-full p-3 text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-2 focus:ring-orange-500 transition"/>
-                </div>
-                <div className="w-full">
-                    <label htmlFor="phone" className="sr-only">Phone</label>
-                    <input id="phone" type="tel" name="phone" placeholder="Phone" required className="w-full p-3 text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-2 focus:ring-orange-500 transition"/>
-                </div>
+              <div className="w-full">
+                <label htmlFor="email" className="sr-only">E-Mail</label>
+                <input id="email" type="email" name="email" placeholder="E-Mail" required className="w-full p-3 text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-2 focus:ring-orange-500 transition" />
+              </div>
+              <div className="w-full">
+                <label htmlFor="phone" className="sr-only">Phone</label>
+                <input id="phone" type="tel" name="phone" placeholder="Phone" required className="w-full p-3 text-black bg-orange-200 rounded-tl-xl border-none rounded-br-xl focus:outline-none focus:ring-2 focus:ring-orange-500 transition" />
+              </div>
             </div>
 
             <div>
-                <label htmlFor="typeMessage" className="sr-only">Message</label>
-                <textarea id="typeMessage" name="typeMessage" placeholder="Type Message" required className="w-full p-3 text-black h-40 bg-orange-200 rounded-tl-xl border-none rounded-br-xl resize-none focus:outline-none focus:ring-2 focus:ring-orange-500 transition"></textarea>
+              <label htmlFor="typeMessage" className="sr-only">Message</label>
+              <textarea id="typeMessage" name="typeMessage" placeholder="Type Message" required className="w-full p-3 text-black h-40 bg-orange-200 rounded-tl-xl border-none rounded-br-xl resize-none focus:outline-none focus:ring-2 focus:ring-orange-500 transition"></textarea>
             </div>
 
             <button
