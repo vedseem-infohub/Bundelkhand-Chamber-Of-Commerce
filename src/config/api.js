@@ -9,7 +9,10 @@ export const ENDPOINTS = {
     CONTACT: "/forms/contact",
     SEND_FORM: "/forms/send-form",
     MEMBER_ZONE_ENROLL: "/public/memberZone/enrollNow",
-    MEMBER_ZONE_DATA: (type) => `/public/memberZone/${type}`
+    MEMBER_ZONE_DATA: (type) => `/public/memberZone/${type}`,
+    EVENTS_LATEST: "/public/events/latest",
+    EVENTS_PAST: "/public/events/past",
+    EVENTS_ALL: "/public/events"
 };
 
 export default { BASE_URL, ENDPOINTS };
